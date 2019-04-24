@@ -1,99 +1,103 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+@extends('layouts.app')
 
-        <title>Laravel</title>
+@section('content')
+    <div class="container" id="app">
+          <br>
+          <!-- Top Hero -->
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+          <br>
 
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
-                font-weight: 200;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 13px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+          <br>
+          <!-- Calendar -->
+          <section>
+            <div class="hero is-transparent">
+              <h1 class="title is-size-3 has-text-white" style="padding-left: 10px;">Calendar</h1>
             </div>
-        </div>
-    </body>
-</html>
+          </section>
+          <br>
+
+          <div class="columns is-multiline">
+
+          @foreach ($events as $event)
+
+          <div class="column is-half-tablet is-one-third-desktop">
+            <transition name="flip">
+              <div @click="toggleCard" v-if="!flipped" class="card" key="front">
+                <header class="card-header has-background-dark">
+                  <div class="columns is-mobile" style="width: 100%;">
+                    <div class="column">
+                      <p class="card-header-title has-text-white">
+                        {{$event->name}}
+                      </p>
+                    </div>
+                    <div class="column is-narrow">
+                      <div style="padding-top: 10px; padding-bottom: 10px;">
+                        <div class="is-size-7 has-text-white">Thu</div>
+                        <div class="is-size-6 has-text-white">4 Mar</div>
+                        <div class="is-size-7 has-text-white">{{$event->time}}</div>
+                      </div>
+                    </div>
+                  </div>
+                </header>
+                <div class="card-image">
+                  <figure class="image is-4by3">
+                    <img src="https://res.cloudinary.com/ctcircle/image/fetch/h_960,w_1280,c_fill/{{$event->image}}" alt="Placeholder image">
+                  </figure>
+                </div>
+              </div>
+              <div @click="toggleCard" v-else class="card" key="back">
+                <header class="card-header has-background-dark">
+                  <div class="columns is-mobile" style="width: 100%;">
+                    <div class="column">
+                      <div class="card-header-title has-text-white">
+                        {{$event->name}}
+                      </div>
+                      <p class="card-header-title is-size-7 has-text-white">
+                        {{$event->location}}
+                      </p>
+                    </div>
+                    <div class="column is-narrow">
+                      <div style="padding-top: 10px; padding-bottom: 10px;">
+                        <div class="is-size-7 has-text-white">Thu</div>
+                        <div class="is-size-6 has-text-white">4 Mar</div>
+                        <div class="is-size-7 has-text-white">{{$event->time}}</div>
+                      </div>
+                    </div>
+                  </div>
+                </header>
+                <div class="card-content">
+                  <div class="content">
+                    {{$event->description}}
+                  </div>
+                </div>
+                <footer class="card-footer">
+                  <a href="http://ctcircle.dk" class="card-footer-item">More Info</a>
+                  <a href="#" class="card-footer-item">Buy Tickets!</a>
+                  <!-- <a href="#" class="card-footer-item">Delete</a> -->
+                </footer>
+              </div>
+            </transition>
+
+          </div>
+
+          @endforeach
+
+          </div>
+
+@endsection
+
+@section('scripts')
+    <script type="text/javascript">
+        new Vue({
+        el: '#app',
+        data: {
+            flipped: false
+        },
+        methods: {
+          toggleCard: function(){
+            this.flipped = !this.flipped;
+          }
+        }
+      });
+    </script>
+@endsection

@@ -1,14 +1,35 @@
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/regular.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
 
 // Variables
 @import 'variables';
 
-// Bootstrap
-@import '~bootstrap/scss/bootstrap';
+// Bulma
+@import '~bulma/bulma.sass';
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+html {
+  background-color: black;
+  background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('../resources/images/smoky-stage-simple.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
+
+.nav-links, .nav-links .container{
+    min-height: 20px !important;
+    height: 45px;
+    font-size: 1.25rem;
+}
+
+#navbar-scrolling {
+  transition: top 0.3s;
+}
+
+
+
+
