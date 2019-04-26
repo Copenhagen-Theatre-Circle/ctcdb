@@ -36,6 +36,9 @@
   }
 </script>
 <style scoped>
+    a {
+      font-size: 1.2rem;
+    }
     li>a:hover {
         /*color: #c42926 !important;*/
         border-bottom-color: #c42926 !important;

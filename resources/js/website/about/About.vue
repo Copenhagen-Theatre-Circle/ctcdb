@@ -1,38 +1,48 @@
 <template>
     <base-layout title="Home">
-        <div>
-            <div class="hero intro">
-              <p class="has-text-white content is-size-6">
-                Copenhagen Theatre Circle (CTC) is an amateur theatrical society founded in 1969. Our performances and events take place in English.
-              </p>
-              <p class="has-text-white content is-size-6">
-                The CTC is open to all who have an interest in being on stage, working behind the scenes and supporting us in numerous other ways.
-              </p>
-              <p class="has-text-white content is-size-6">
-                You can click on the cards below to find out more about <a href="#what">what we do</a>, <a href="#how">how we work</a> and <a href="#help">how you can participate</a>.
-              </p>
-            </div>
-            <div v-for="category in data">
-                <h1 class="title is-size-3 has-text-white" style="margin: 1rem 0rem 0rem 0.6rem;">{{category.name}}</h1>
-              <br>
-              <div class="columns is-multiline">
-                  <modal-card
-                    v-for="card in category.about_us_cards"
-                    :key="card.id"
-                    :title="card.title"
-                    :text="card.text"
-                    :image="card.photograph"
-                    >
-                  </modal-card>
-              </div>
-            </div>
-            <br>
+      <section class="section">
+        <div class="hero intro">
+          <p class="has-text-white content is-size-6">
+            Copenhagen Theatre Circle (CTC) is an amateur theatrical society founded in 1969. Our performances and events take place in English.
+          </p>
+          <p class="has-text-white content is-size-6">
+            The CTC is open to all who have an interest in being on stage, working behind the scenes and supporting us in numerous other ways.
+          </p>
+          <p class="has-text-white content is-size-6">
+            Click on the links and cards below to find out more about what we do, how we work and how you can participate.
+          </p>
         </div>
+        <br>
+        <about-tabs :activeTab="panel" @selectTab="panel=$event"></about-tabs>
+        <about-card-panel
+          :data="data[panel-1]"
+          :panel="panel"
+          :linkTextLeft="linkTextLeft[panel-1]"
+          :linkTextRight="linkTextRight[panel-1]"
+          @selectTab="panel=$event"
+          >
+        </about-card-panel>
+      </section>
     </base-layout>
 </template>
 
 <script>
   export default {
+      data() {
+        return {
+          panel: 1,
+          linkTextRight: [
+            'read more about how we work',
+            'read more about how you can participate',
+            ''
+            ],
+          linkTextLeft: [
+            '',
+            'read more about what we do',
+            'read more about how we work'
+            ],
+        }
+      },
       props: ['data'],
   }
 </script>
@@ -46,5 +56,13 @@
   a:hover{
     color:#d10f22;
     text-decoration: underline;
+  }
+  section {
+    background: linear-gradient( rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4) );
+    padding-top: 1rem;
+    margin-top: 1rem;
+  }
+  p {
+    line-height: 1;
   }
 </style>

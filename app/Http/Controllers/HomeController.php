@@ -6,6 +6,7 @@ use App\Event;
 use App\Eventtype;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\View;
 
 class HomeController extends Controller
@@ -15,6 +16,7 @@ class HomeController extends Controller
         $eventtypes = Eventtype::all();
         $events = Event::whereDate('date', '>=', Carbon::now('Europe/Stockholm'))->orderBy('date')->get();
         $events->load('project','eventtype');
+        // return $auth;
         // return $events;
 
         //*********** in memory parsing of data - TO DO: refactor to repository? *************
