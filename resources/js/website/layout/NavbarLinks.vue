@@ -13,7 +13,7 @@
 
         <!-- login or name w/ dropdown -->
         <navbar-links-personal-dropdown v-if ="auth.check" />
-        <navbar-links-item title="Login" route="/login" v-else />
+        <navbar-links-item title="Sign In" route="/login" v-else />
 
     </div>
 </template>

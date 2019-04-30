@@ -21,7 +21,7 @@
                                 <div class="select">
                                   <select v-model="eventFilter">
                                     <option>all</option>
-                                    <option v-for="eventtype in eventtypes" :key="eventtype.id">{{eventtype.name}}</option>
+                                    <option v-for="eventtype in eventtypes" :key="eventtype.id">{{eventtype.name}}<span v-if="eventtype.name!=='Open Stage'">s</span></option>
                                   </select>
                                 </div>
                             </div>

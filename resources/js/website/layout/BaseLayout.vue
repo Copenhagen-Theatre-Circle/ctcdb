@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div :class="{members: members}">
         <navbar-short></navbar-short>
         <navbar-social></navbar-social>
         <navbar-tall></navbar-tall>
@@ -13,7 +13,10 @@
 
 <script>
 export default {
-    props: ['title'],
+    props: [
+    'title',
+    'members'
+    ],
     mounted() {
         this.updatePageTitle(this.title)
     },
@@ -29,3 +32,10 @@ export default {
     },
 }
 </script>
+<style scoped>
+    .members {
+        background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('../../../images/smoky-stage-advanced.jpg') no-repeat center center fixed;
+        background-size: cover;
+        height: 100vh;
+    }
+</style>

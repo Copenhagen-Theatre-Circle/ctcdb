@@ -29,6 +29,7 @@
                 {{text}}
               </section>
               <footer class="modal-card-foot">
+                <p>If you would like to let help, please <a href="/login">sign in</a> to create a profile and fill in our participation questionnaire.</p>
               </footer>
             </div>
           <!-- <button class="modal-close is-large" @click="toggleModal"></button> -->

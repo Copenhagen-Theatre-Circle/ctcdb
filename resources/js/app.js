@@ -1,4 +1,3 @@
-
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -9,9 +8,12 @@ require('./bootstrap');
 
 // window.Vue = require('vue');
 
-import Vue from 'vue';
-import VueScrollactive from 'vue-scrollactive';
-Vue.use(VueScrollactive);
+import Vue from 'vue'
+import VueScrollactive from 'vue-scrollactive'
+import Buefy from 'buefy'
+
+Vue.use(VueScrollactive)
+Vue.use(Buefy)
 
 /**
  * The following block of code may be used to automatically register your

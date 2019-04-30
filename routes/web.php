@@ -11,7 +11,15 @@
 |
 */
 
+
+Auth::routes();
+
+//Home / What's On
 Route::get('/', 'HomeController@show');
+Route::get('/home', function(){
+    return redirect('/');
+});
+Route::get('/whats-on', 'HomeController@show');
 
 //About
 Route::get('/about', 'AboutController@show');
@@ -24,6 +32,12 @@ Route::get('/history/shows', 'ShowsController@index')->name('shows');
 Route::get('/history/shows/{id}', 'ShowsController@show');
 Route::get('/history/people', 'PeopleController@index')->name('people');
 Route::get('/history/seasons', 'SeasonsController@index')->name('seasons');
+
+//Join
+Route::get('/join', 'JoinController@show');
+
+//Members
+Route::get('/members','MembersController@show');
 
 
 //Admin Controllers
@@ -46,6 +60,4 @@ Route::get('/admin-api/plays', 'AdminPlaysController@index');
 // Route::get('admin/projects', 'AdminProjectsController@index');
 // Route::get('admin/plays', 'AdminPlaysController@index');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@show')->name('home');

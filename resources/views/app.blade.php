@@ -1,5 +1,11 @@
 <!DOCTYPE html>
-<html>
+<html
+{{--     @if (Request::segment(1) == 'members')
+        style="
+        background: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url('/images/smoky-stage-advanced.jpg') no-repeat center center fixed;
+        background-size: cover;"
+    @endif --}}
+>
 <head>
     <meta charset="utf-8">
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
