@@ -33,6 +33,7 @@ export default {
 </script>
 <style scoped>
     .ctcdb {
+        min-height: 100vh;
         height: 100%;
     }
 </style>
