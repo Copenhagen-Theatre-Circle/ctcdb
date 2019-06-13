@@ -6,7 +6,7 @@
 <!--             <span class="caret" @click="open=!open" v-if="open"><i class="fas fa-caret-down is-size-6"></i></span>
             <span class="caret" @click="open=!open"  v-else><i class="fas fa-caret-right is-size-6"></i></span> -->
             {{title}}
-            <a href="#" class="back-to-top is-size-7">back to top</a>
+            <a href="#" class="back-to-top is-size-7" data-turbolinks="false">back to top</a>
         </h1>
         <slot v-if="open"></slot>
     </div>

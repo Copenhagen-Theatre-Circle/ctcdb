@@ -3771,6 +3771,7 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['project']
 });
@@ -11721,9 +11722,14 @@ var render = function() {
       _vm._m(1),
       _vm._v(" "),
       _c("li", [
-        _c("a", { staticClass: "has-text-primary", attrs: { href: "#cast" } }, [
-          _vm._v("Cast")
-        ]),
+        _c(
+          "a",
+          {
+            staticClass: "has-text-primary",
+            attrs: { href: "#cast", "data-turbolinks": "false" }
+          },
+          [_vm._v("Cast")]
+        ),
         _vm._v(" "),
         _vm.project.projects_plays.length > 1
           ? _c(
@@ -11739,7 +11745,8 @@ var render = function() {
                           "#" +
                           projects_play.play.title
                             .toLowerCase()
-                            .replace(/[^a-z0-9+]+/gi, "")
+                            .replace(/[^a-z0-9+]+/gi, ""),
+                        "data-turbolinks": "false"
                       }
                     },
                     [
@@ -11773,7 +11780,10 @@ var staticRenderFns = [
     return _c("li", [
       _c(
         "a",
-        { staticClass: "has-text-primary", attrs: { href: "#synopsis" } },
+        {
+          staticClass: "has-text-primary",
+          attrs: { href: "#synopsis", "data-turbolinks": "false" }
+        },
         [_vm._v("Synopsis")]
       )
     ])
@@ -11787,20 +11797,10 @@ var staticRenderFns = [
         "a",
         {
           staticClass: "has-text-primary",
-          attrs: { href: "#directorsstatement" }
+          attrs: { href: "#anotefromthedirector", "data-turbolinks": "false" }
         },
-        [_vm._v("Director's Statement")]
+        [_vm._v("A note from the director")]
       )
-    ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("li", [
-      _c("a", { staticClass: "has-text-primary", attrs: { href: "#crew" } }, [
-        _vm._v("Crew")
-      ])
     ])
   },
   function() {
@@ -11810,7 +11810,25 @@ var staticRenderFns = [
     return _c("li", [
       _c(
         "a",
-        { staticClass: "has-text-primary", attrs: { href: "#photographs" } },
+        {
+          staticClass: "has-text-primary",
+          attrs: { href: "#crew", "data-turbolinks": "false" }
+        },
+        [_vm._v("Crew")]
+      )
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("li", [
+      _c(
+        "a",
+        {
+          staticClass: "has-text-primary",
+          attrs: { href: "#photographs", "data-turbolinks": "false" }
+        },
         [_vm._v("Photographs")]
       )
     ])
@@ -11822,7 +11840,10 @@ var staticRenderFns = [
     return _c("li", [
       _c(
         "a",
-        { staticClass: "has-text-primary", attrs: { href: "#documents" } },
+        {
+          staticClass: "has-text-primary",
+          attrs: { href: "#documents", "data-turbolinks": "false" }
+        },
         [_vm._v("Documents")]
       )
     ])
@@ -11859,7 +11880,10 @@ var render = function() {
         _vm._v("\n            " + _vm._s(_vm.title) + "\n            "),
         _c(
           "a",
-          { staticClass: "back-to-top is-size-7", attrs: { href: "#" } },
+          {
+            staticClass: "back-to-top is-size-7",
+            attrs: { href: "#", "data-turbolinks": "false" }
+          },
           [_vm._v("back to top")]
         )
       ]),
