@@ -77435,28 +77435,30 @@ files.keys().map(function (key) {
 }); // Start Turbolinks
 // require('turbolinks').start()
 // Boot the current Vue component
+// const root = document.getElementById('app')
+// window.vue = new Vue({
+//     render: h => h(
+//         Vue.component(root.dataset.component), {
+//             props: JSON.parse(root.dataset.props)
+//         }
+//     )
+// }).$mount(root)
 
-var root = document.getElementById('app');
-window.vue = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
-  render: function render(h) {
-    return h(vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(root.dataset.component), {
-      props: JSON.parse(root.dataset.props)
-    });
+document.addEventListener('turbolinks:load', function (event) {
+  var root = document.getElementById('app');
+
+  if (window.vue) {
+    window.vue.$destroy(true);
   }
-}).$mount(root); // document.addEventListener('turbolinks:load', (event) => {
-//     const root = document.getElementById('app')
-//     if (window.vue) {
-//         window.vue.$destroy(true)
-//     }
-//     window.vue = new Vue({
-//         render: h => h(
-//             Vue.component(root.dataset.component), {
-//                 props: JSON.parse(root.dataset.props)
-//             }
-//         )
-//     }).$mount(root)
-// })
 
+  window.vue = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
+    render: function render(h) {
+      return h(vue__WEBPACK_IMPORTED_MODULE_0___default.a.component(root.dataset.component), {
+        props: JSON.parse(root.dataset.props)
+      });
+    }
+  }).$mount(root);
+});
 window.eventHub = new vue__WEBPACK_IMPORTED_MODULE_0___default.a(); // Vue.component('example-component', require('./components/ExampleComponent.vue').default);
 
 /**
