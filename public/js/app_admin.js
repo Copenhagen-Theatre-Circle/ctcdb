@@ -5181,7 +5181,7 @@ exports = module.exports = __webpack_require__(/*! ../../../../../node_modules.n
 
 
 // module
-exports.push([module.i, "\ndiv[data-v-1d670699] {\n    padding-bottom: 1rem;\n    padding-top: 80px;\n    margin-top: -80px;\n}\nhr[data-v-1d670699] {\n    background-color: lightgrey;\n    height: 1px;\n    margin: 12px 0px;\n}\n", ""]);
+exports.push([module.i, "\ndiv[data-v-1d670699] {\n    /*padding-bottom: 1rem;*/\n    padding-top: 80px;\n    margin-top: -80px;\n}\nhr[data-v-1d670699] {\n    background-color: lightgrey;\n    height: 1px;\n    margin: 12px 0px 24px 0px;\n}\n", ""]);
 
 // exports
 

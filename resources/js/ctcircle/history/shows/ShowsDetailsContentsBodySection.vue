@@ -12,13 +12,13 @@
 </script>
 <style scoped>
     div {
-        padding-bottom: 1rem;
+        /*padding-bottom: 1rem;*/
         padding-top: 80px;
         margin-top: -80px;
     }
     hr {
         background-color: lightgrey;
         height: 1px;
-        margin: 12px 0px;
+        margin: 12px 0px 24px 0px;
     }
 </style>
