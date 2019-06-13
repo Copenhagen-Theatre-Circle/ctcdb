@@ -2,11 +2,13 @@
     <div>
         <h1 class="subtitle is-size-4">{{title}}</h1>
         <vue-gallery :images="photos" :index="index" @close="index = null" :id="'blueimp-gallery-'+gallerynr"></vue-gallery>
-        <img
-          v-for="(photograph,key) in photos"
-          :src="photograph"
-          @click="index = key"
-        >
+        <div class="thumbnail-gallery">
+          <img
+            v-for="(photograph,key) in photos"
+            :src="photograph"
+            @click="index = key"
+          >
+        </div>
     </div>
 </template>
 <script>
@@ -40,5 +42,11 @@
   }
   img:hover{
     transform: scale(1.03);
+  }
+  h1{
+    margin-bottom: 0.3rem !important;
+  }
+  .thumbnail-gallery{
+    margin-bottom: 1rem;
   }
 </style>

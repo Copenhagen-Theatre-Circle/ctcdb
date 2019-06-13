@@ -6,6 +6,7 @@
       <div class="titlecard">
       <!-- Carousel -->
         <h1 class="subtitle is-1">{{project.name}}</h1>
+        <h3 class="subtitle is-4" v-if="project.directors">directed by {{project.directors}}</h3>
       </div>
     </div>
     <div v-else>
@@ -21,14 +22,17 @@
 </script>
 <style scoped lang="scss">
     .titlecard {
-        margin-top: -120px;
+        margin-top: -180px;
         margin-bottom: 50px;
         position: relative;
         background: linear-gradient( rgba(120, 120, 120, 0.7), rgba(120, 120, 120, 0.7) );
         color: white !important;
         padding: 1rem;
-        h1 {
+        h1, h3 {
           color: white;
+        }
+        .is-1{
+          margin-bottom: 0.3rem;
         }
     }
 </style>

@@ -14,7 +14,7 @@
         </shows-details-contents-body-section>
 
         <!-- Director's Statement -->
-        <shows-details-contents-body-section title="Director's Statement">
+        <shows-details-contents-body-section title="A note from the director">
             <shows-details-contents-body-section-statement :project="project" />
         </shows-details-contents-body-section>
 
@@ -35,7 +35,7 @@
 
         <!-- Documents -->
         <shows-details-contents-body-section title="Documents">
-            <lorem-ipsum></lorem-ipsum>
+            <shows-details-contents-body-section-documents :project="project" />
         </shows-details-contents-body-section>
 
 

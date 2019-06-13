@@ -32,14 +32,17 @@ class ShowsController extends Controller
         $project = Project::find($id);
         $projectarray=$project->toArray();
         $project->load(
-            'crewmembers.person',
-            'crewmembers.crewtype',
+            'production_crewmembers.person',
+            'production_crewmembers.crewtype',
             'projects_plays.play',
             'projects_plays.actors.person.portraits',
             'projects_plays.actors.character',
             'projects_plays.crewmembers.person',
             'projects_plays.crewmembers.crewtype',
-            'phototags.photograph.phototype'
+            'phototags.photograph.phototype',
+            'directors.person',
+            'documents.documenttype',
+            'programme'
         );
         // return $project;
 
@@ -52,12 +55,23 @@ class ShowsController extends Controller
         $projectarray['photographs']=$photographs;
 
         // re-sort crewmembers;
-        $crewmembers = $project->crewmembers->sortBy('crewtype.sort_order')->values()->all();
+        $crewmembers = $project->production_crewmembers->sortBy('crewtype.sort_order')->values()->all();
+        // return $crewmembers;
+        $projectarray['crewmembers']=$crewmembers;
+        $directors = $project->directors->map(function($director){
+            return $director->person->first_name . ' ' . $director->person->last_name;
+        })->join(', ',' and ');
+        $projectarray['directors']=$directors;
+
+        $projectarray['documents']=$project->documents->sortBy('documenttype_id')->values()->all();
+
+        $projectarray['programme']=$project->programme->first()->toArray();
 
         $projectarray['projects_plays']=$project->projects_plays->toArray();
-        $projectarray['crewmembers']=$crewmembers;
+
         $project = $projectarray;
-        // return $projectarray;
+        // return $project;
+
         $app_url = env('APP_URL', 'https://ctcdb.dk');
         if ($app_url=='https://ctcdb.dk') {
             return View::component('CtcdbShowsDetails', ['project' => $project]);
