@@ -36,29 +36,30 @@ files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(
 // require('turbolinks').start()
 
 // Boot the current Vue component
-const root = document.getElementById('app')
-window.vue = new Vue({
-    render: h => h(
-        Vue.component(root.dataset.component), {
-            props: JSON.parse(root.dataset.props)
-        }
-    )
-}).$mount(root)
-// document.addEventListener('turbolinks:load', (event) => {
-//     const root = document.getElementById('app')
+// const root = document.getElementById('app')
+// window.vue = new Vue({
+//     render: h => h(
+//         Vue.component(root.dataset.component), {
+//             props: JSON.parse(root.dataset.props)
+//         }
+//     )
+// }).$mount(root)
 
-//     if (window.vue) {
-//         window.vue.$destroy(true)
-//     }
+document.addEventListener('turbolinks:load', (event) => {
+    const root = document.getElementById('app')
 
-//     window.vue = new Vue({
-//         render: h => h(
-//             Vue.component(root.dataset.component), {
-//                 props: JSON.parse(root.dataset.props)
-//             }
-//         )
-//     }).$mount(root)
-// })
+    if (window.vue) {
+        window.vue.$destroy(true)
+    }
+
+    window.vue = new Vue({
+        render: h => h(
+            Vue.component(root.dataset.component), {
+                props: JSON.parse(root.dataset.props)
+            }
+        )
+    }).$mount(root)
+})
 
 window.eventHub = new Vue()
 
