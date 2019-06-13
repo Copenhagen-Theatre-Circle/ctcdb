@@ -9,11 +9,17 @@ require('./bootstrap');
 // window.Vue = require('vue');
 
 import Vue from 'vue'
-import VueScrollactive from 'vue-scrollactive'
+// import VueScrollactive from 'vue-scrollactive'
 import Buefy from 'buefy'
+import VueCarousel from 'vue-carousel'
+import VueGallery from 'vue-gallery'
 
-Vue.use(VueScrollactive)
-Vue.use(Buefy)
+// Vue.use(VueScrollactive)
+Vue.use(Buefy,{defaultIconPack: 'fas'})
+Vue.use(VueCarousel)
+Vue.component('vue-gallery',VueGallery)
+
+
 
 /**
  * The following block of code may be used to automatically register your
@@ -27,24 +33,32 @@ const files = require.context('./', true, /\.vue$/i);
 files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
 
 // Start Turbolinks
-require('turbolinks').start()
+// require('turbolinks').start()
 
 // Boot the current Vue component
-document.addEventListener('turbolinks:load', (event) => {
-    const root = document.getElementById('app')
+const root = document.getElementById('app')
+window.vue = new Vue({
+    render: h => h(
+        Vue.component(root.dataset.component), {
+            props: JSON.parse(root.dataset.props)
+        }
+    )
+}).$mount(root)
+// document.addEventListener('turbolinks:load', (event) => {
+//     const root = document.getElementById('app')
 
-    if (window.vue) {
-        window.vue.$destroy(true)
-    }
+//     if (window.vue) {
+//         window.vue.$destroy(true)
+//     }
 
-    window.vue = new Vue({
-        render: h => h(
-            Vue.component(root.dataset.component), {
-                props: JSON.parse(root.dataset.props)
-            }
-        )
-    }).$mount(root)
-})
+//     window.vue = new Vue({
+//         render: h => h(
+//             Vue.component(root.dataset.component), {
+//                 props: JSON.parse(root.dataset.props)
+//             }
+//         )
+//     }).$mount(root)
+// })
 
 window.eventHub = new Vue()
 

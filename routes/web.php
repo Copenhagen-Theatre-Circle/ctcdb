@@ -11,6 +11,15 @@
 |
 */
 
+$app_url = env('APP_URL', 'https://ctcdb.dk');
+
+/*
+|--------------------------------------------------------------------------
+| Routes for ctcircle.dk
+|--------------------------------------------------------------------------
+*/
+
+if ($app_url=='http://ctcircle.test' or $app_url=='https://ctcircle.dk') {
 
 Auth::routes();
 
@@ -52,6 +61,26 @@ Route::get('/admin-api/events', 'AdminEventsController@index');
 Route::get('/admin-api/projects', 'AdminProjectsController@index');
 Route::get('/admin-api/plays', 'AdminPlaysController@index');
 
+}
+
+
+/*
+|--------------------------------------------------------------------------
+| Routes for ctcircle.dk
+|--------------------------------------------------------------------------
+*/
+
+if ($app_url=='https://ctcdb.dk') {
+
+    Route::get('/', function(){
+        return redirect('/shows');
+    });
+    Route::get('shows/', 'ShowsController@index');
+    Route::get('/shows/{id}', 'ShowsController@show');
+    Route::get('/people', 'PeopleController@index')->name('people');
+    Route::get('/seasons', 'SeasonsController@index')->name('seasons');
+
+}
 
 // Route::get('admin', function(){
 //     return redirect('admin/events');

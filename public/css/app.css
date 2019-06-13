@@ -20763,8 +20763,7 @@ label.panel-block:hover {
 }
 
 html {
-  background-color: black;
-  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/images/smoky-stage-simple.jpg?dad210344c79fe9aa31a539968500e65) no-repeat center center fixed;
+  background-color: white;
   background-size: cover;
 }
 

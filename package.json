@@ -32,6 +32,8 @@
         "material-icons": "^0.3.0",
         "roboto-fontface": "^0.10.0",
         "turbolinks": "^5.2.0",
+        "vue-carousel": "^0.18.0",
+        "vue-gallery": "^2.0.0",
         "vue-router": "^3.0.2",
         "vue-scrollactive": "^0.8.0",
         "vuetify": "^1.5.6"

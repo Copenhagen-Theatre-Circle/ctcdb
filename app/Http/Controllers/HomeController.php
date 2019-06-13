@@ -20,6 +20,7 @@ class HomeController extends Controller
         // return $events;
 
         //*********** in memory parsing of data - TO DO: refactor to repository? *************
+        $eventarray=[];
         $i = 0;
         foreach ($events as $event) {
             $i++;
