@@ -59,4 +59,68 @@ class PeopleController extends Controller
             return View::component('PeopleIndex', ['people' => $array]);
         }
     }
+
+    public function show($id)
+    {
+        $person = Person::find($id);
+        $personarray = $person->toArray();
+        $person->load('phototags.photograph.phototype','portraits','roles.character','roles.projects_play.project','roles.projects_play.play','crewfunctions.crewtype');
+        // return $person;
+        // photographs
+        $photographs=array();
+        foreach ($person->phototags as $phototag){
+            $phototype= str_replace(' ', '_', strtolower($phototag->photograph->phototype->name ?? '')).'s';
+            $photographs[$phototype][] = $phototag->photograph->file_name;
+        }
+        $personarray['photographs']=$photographs;
+        $personarray['public_bio']=$person->public_bio;
+        $personarray['phototags']=$person->phototags->toArray();
+        $personarray['portraits']=$person->portraits->sortBy('created_at')->reverse()->first();
+        $personarray['roles']=$person->roles->map(function($role){
+            $subarray['character']=$role->character->name;
+            $subarray['play']=$role->projects_play->play->title;
+            $subarray['project_id']=$role->projects_play->project->id;
+            $subarray['year']=$role->projects_play->project->year;
+            return $subarray;
+        })->sortBy('year')->values()->all();
+
+        //crewjobs
+        $crewfunctions=array();
+        foreach ($person->crewfunctions as $crewfunction) {
+            if (isset($crewfunction->projects_play->project->id)) {
+              $id = $crewfunction->projects_play->project->date_start . '_pp_'. $crewfunction->projects_play->id;
+              $crewfunctions[$id]['crewfunction'][] = $crewfunction->crewtype->name;
+              $crewfunctions[$id]['project'] = $crewfunction->projects_play->play->title;
+              $crewfunctions[$id]['project_id'] = $crewfunction->projects_play->project_id;
+              $crewfunctions[$id]['year'] = $crewfunction->projects_play->project->year;
+            } elseif (isset($crewfunction->project->id)) {
+              $id = $crewfunction->project->date_start . '_pr_'. $crewfunction->project->id;
+              $crewfunctions[$id]['crewfunction'][] = $crewfunction->crewtype->name;
+              $crewfunctions[$id]['project'] = $crewfunction->project->name;
+              $crewfunctions[$id]['project_id'] = $crewfunction->project->id;
+              $crewfunctions[$id]['year'] = $crewfunction->project->year;
+            }
+        }
+
+        if (isset($crewfunctions)) {
+          ksort($crewfunctions);
+        }
+        $crewfunctions = collect($crewfunctions)->map(function($crewfunction){
+            $subarray['crewfunction']=collect($crewfunction['crewfunction'])->implode(', ');
+            $subarray['project']=$crewfunction['project'];
+            $subarray['project_id']=$crewfunction['project_id'];
+            $subarray['year']=$crewfunction['year'];
+            return $subarray;
+        })->values()->all();
+        $personarray['crewfunctions']=$crewfunctions;
+        // return $personarray['roles'];
+        $person = $personarray;
+        // return $person;
+        $app_url = env('APP_URL', 'https://ctcdb.dk');
+        if ($app_url=='https://ctcdb.dk') {
+            return View::component('CtcdbPeopleDetails', ['person' => $person]);
+        } else {
+            return View::component('PeopleDetails', ['people' => $array]);
+        }
+    }
 }

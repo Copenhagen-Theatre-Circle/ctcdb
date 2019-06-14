@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class ProjectsPlay extends Model
 {
-    protected $visible=['play','synopsis_programme','directors_statement','actors','crewmembers'];
+    protected $visible=['play','synopsis_programme','directors_statement','actors','crewmembers','project'];
 
     public function project()
     {

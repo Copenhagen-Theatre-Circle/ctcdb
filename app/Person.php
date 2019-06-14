@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Person extends Model
 {
-    protected $visible=['id','first_name','last_name','portraits'];
+    protected $visible=['id','first_name','last_name','portraits','phototags','roles','crewfunctions'];
 
     public function crewfunctions()
     {
@@ -21,5 +21,10 @@ class Person extends Model
     public function portraits()
     {
           return $this->hasMany('App\Photograph')->orderBy('created_at', 'desc');
+    }
+
+    public function phototags()
+    {
+        return $this->hasMany('App\Phototag');
     }
 }

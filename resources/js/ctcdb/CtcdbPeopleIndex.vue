@@ -11,7 +11,7 @@
           <b-table striped hoverable :data="filter">
             <template slot-scope="props">
               <b-table-column field="full_name" label="Name" width="250">
-                <a :href="'/history/people/'+ props.row.id" >
+                <a :href="'/people/'+ props.row.id" >
                   {{ props.row.first_name }} {{ props.row.last_name }}
                 </a>
               </b-table-column>
@@ -25,7 +25,7 @@
                   {{ props.row.activities }}
               </b-table-column>
               <b-table-column custom-key="actions">
-                <a :href="'/history/people/'+ props.row.id" class="button is-small is-outlined is-primary is-light">
+                <a :href="'/people/'+ props.row.id" class="button is-small is-outlined is-primary is-light">
                  <i class="fas fa-eye"></i>&nbsp;&nbsp; view profile
                 </a>
               </b-table-column>

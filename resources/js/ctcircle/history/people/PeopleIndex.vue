@@ -12,18 +12,15 @@
           </div>
           <b-table striped hoverable :data="filter">
             <template slot-scope="props">
-              <b-table-column field="full_name" label="Name" width="250">
+              <b-table-column field="full_name" label="Name">
                 <a :href="'/history/people/'+ props.row.id" >
                   {{ props.row.first_name }} {{ props.row.last_name }}
                 </a>
               </b-table-column>
-<!--               <b-table-column field="last_name" label="First Name">
-                  {{ props.row.first_name }}
-              </b-table-column> -->
-              <b-table-column field="last_name" label="Years" width="140">
+              <b-table-column field="last_name" label="Years">
                   {{ props.row.years }}
               </b-table-column>
-              <b-table-column field="last_name" label="Activities" >
+              <b-table-column field="last_name" label="Activities">
                   {{ props.row.activities }}
               </b-table-column>
               <b-table-column custom-key="actions">
@@ -88,4 +85,9 @@
       padding-top: 1rem;
       margin-top: 1rem;
     }
+</style>
+<style>
+  td {
+    max-width: 600px !important;
+  }
 </style>

@@ -2,7 +2,8 @@
     <div>
         <div
           class="statement"
-          v-for="project_play in project.projects_plays"
+          v-for="(project_play, key) in project.projects_plays"
+          :key="key"
           >
           <h1
               class="subtitle is-size-4"

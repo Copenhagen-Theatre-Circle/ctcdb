@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div v-for="(projects_play, key) in project.projects_plays">
+        <div v-for="(projects_play, key) in project.projects_plays" :key="key">
             <h1
                 class="subtitle is-size-4"
                 :id="projects_play.play.title.toLowerCase().replace(/[^a-z0-9+]+/gi, '')"

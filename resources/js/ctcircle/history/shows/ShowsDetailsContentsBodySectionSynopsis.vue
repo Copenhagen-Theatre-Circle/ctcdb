@@ -1,8 +1,9 @@
 <template>
-    <div>
+    <div v-if="project.projects_plays[0].synopsis_programme">
         <div
           class="synopsis"
-          v-for="project_play in project.projects_plays"
+          v-for="(project_play, key) in project.projects_plays"
+          :key="key"
           >
           <h1
               class="subtitle is-size-4"
