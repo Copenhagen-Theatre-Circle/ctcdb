@@ -65,7 +65,7 @@ class ShowsController extends Controller
 
         $projectarray['documents']=$project->documents->sortBy('documenttype_id')->values()->all();
 
-        $projectarray['programme']=$project->programme->first()->toArray();
+        $projectarray['programme']=$project->programme->first();
 
         $projectarray['projects_plays']=$project->projects_plays->toArray();
 
