@@ -12369,7 +12369,7 @@ var render = function() {
           ])
         : _vm._e(),
       _vm._v(" "),
-      _vm.person.crewfunctions
+      _vm.person.crewfunctions.length > 0
         ? _c("li", [
             _c(
               "a",

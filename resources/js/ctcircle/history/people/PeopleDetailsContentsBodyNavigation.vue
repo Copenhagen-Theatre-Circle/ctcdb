@@ -7,7 +7,7 @@
             <li v-if="person.roles.length>0">
                  <a class="has-text-primary" href="#ascastmember" data-turbolinks="false">as Cast Member</a>
             </li>
-            <li v-if="person.crewfunctions">
+            <li v-if="person.crewfunctions.length>0">
                  <a class="has-text-primary" href="#ascrewmember" data-turbolinks="false">as Crew Member</a>
             </li>
             <li v-if="person.phototags.length>0">
