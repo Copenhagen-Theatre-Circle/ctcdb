@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    protected $visible=['id','name','date_start','date_end','number_of_performances','synopsis','special_thanks','directors_statement','poster','projecttype','year','projects_plays','crewmembers','directors','programme','documents'];
+    protected $visible=['id','name','date_start','date_end','number_of_performances','synopsis','special_thanks','directors_statement','poster','projecttype','year','projects_plays','crewmembers','directors','programme','documents','season','venue'];
 
     public function projects_plays()
     {
@@ -48,5 +48,15 @@ class Project extends Model
     public function projecttype()
     {
         return $this->belongsTo('App\Projecttype');
+    }
+
+    public function season()
+    {
+        return $this->belongsTo('App\Season');
+    }
+
+    public function venue()
+    {
+        return $this->belongsTo('App\Venue');
     }
 }

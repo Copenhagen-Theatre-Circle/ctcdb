@@ -3,8 +3,6 @@
         <!-- Title -->
         <shows-details-contents-body-title :project="project" />
 
-        <hr>
-
         <!-- Navigation -->
         <shows-details-contents-body-navigation :project="project" />
 
@@ -31,13 +29,13 @@
         <!-- Photographs -->
         <shows-details-contents-body-section title="Photographs"
             v-if="
-                project.photographs.show_stills.length > 0
+                project.photographs.show_stills
                 ||
-                project.photographs.promo_pics.length > 0
+                project.photographs.promo_pics
                 ||
-                project.photographs.portraits.length > 0
+                project.photographs.portraits
                 ||
-                project.photographs.behind_the_scenes.length > 0"
+                project.photographs.behind_the_scenes"
             >
             <shows-details-contents-body-section-photographs :project="project" />
         </shows-details-contents-body-section>
@@ -67,8 +65,4 @@
   }
 </script>
 <style scoped>
-    hr {
-        background-color: lightgrey;
-        height: 1px;
-    }
 </style>

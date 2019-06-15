@@ -25,7 +25,6 @@
             </div>
           </div>
           <div class="columns is-multiline">
-
             <shows-index-card
               v-for="(project,index) in filter"
               :title="project.name"

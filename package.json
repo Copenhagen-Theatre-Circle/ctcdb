@@ -30,6 +30,7 @@
         "dropzone": "^5.5.1",
         "material-design-icons-iconfont": "^4.0.5",
         "material-icons": "^0.3.0",
+        "moment": "^2.24.0",
         "roboto-fontface": "^0.10.0",
         "turbolinks": "^5.2.0",
         "vue-carousel": "^0.18.0",

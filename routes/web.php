@@ -75,11 +75,12 @@ if ($app_url=='https://ctcdb.dk') {
     Route::get('/', function(){
         return redirect('/shows');
     });
-    Route::get('shows/', 'ShowsController@index');
+    Route::get('/shows', 'ShowsController@index');
     Route::get('/shows/{id}', 'ShowsController@show');
     Route::get('/people', 'PeopleController@index')->name('people');
     Route::get('/people/{id}', 'PeopleController@show');
     Route::get('/seasons', 'SeasonsController@index')->name('seasons');
+    Route::get('/seasons/{id}', 'SeasonsController@show');
 
 }
 

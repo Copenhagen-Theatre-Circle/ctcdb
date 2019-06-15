@@ -42,7 +42,9 @@ class ShowsController extends Controller
             'phototags.photograph.phototype',
             'directors.person',
             'documents.documenttype',
-            'programme'
+            'programme',
+            'season',
+            'venue'
         );
         // return $project;
 
@@ -66,6 +68,8 @@ class ShowsController extends Controller
         $projectarray['documents']=$project->documents->sortBy('documenttype_id')->values()->all();
 
         $projectarray['programme']=$project->programme->first();
+        $projectarray['season']=$project->season;
+        $projectarray['venue']=$project->venue;
 
         $projectarray['projects_plays']=$project->projects_plays->toArray();
 

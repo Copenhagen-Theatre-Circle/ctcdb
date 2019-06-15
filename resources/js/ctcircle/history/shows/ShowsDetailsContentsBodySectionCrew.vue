@@ -50,7 +50,7 @@
                 </b-table-column>
             </template>
         </b-table>
-        <div v-if="project.special_thanks.length > 1">
+        <div v-if="project.special_thanks">
             <h1 class="subtitle is-size-4">
                 Special Thanks
             </h1>

@@ -25,13 +25,13 @@
                  <a class="has-text-primary" href="#crew" data-turbolinks="false">Crew</a>
             </li>
             <li v-if="
-                project.photographs.show_stills.length > 0
+                project.photographs.show_stills > 0
                 ||
-                project.photographs.promo_pics.length > 0
+                project.photographs.promo_pics > 0
                 ||
-                project.photographs.portraits.length > 0
+                project.photographs.portraits > 0
                 ||
-                project.photographs.behind_the_scenes.length > 0"
+                project.photographs.behind_the_scenes > 0"
             >
               <a class="has-text-primary" href="#photographs" data-turbolinks="false">Photographs</a>
             </li>

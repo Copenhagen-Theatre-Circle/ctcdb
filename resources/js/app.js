@@ -13,7 +13,7 @@ import Vue from 'vue'
 import Buefy from 'buefy'
 import VueCarousel from 'vue-carousel'
 import VueGallery from 'vue-gallery'
-
+window.moment = require('moment')
 // Vue.use(VueScrollactive)
 Vue.use(Buefy,{defaultIconPack: 'fas'})
 Vue.use(VueCarousel)

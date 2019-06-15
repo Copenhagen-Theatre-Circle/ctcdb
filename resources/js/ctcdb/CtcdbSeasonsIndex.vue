@@ -4,7 +4,7 @@
           <b-table striped hoverable :data="seasons">
             <template slot-scope="props">
               <b-table-column field="year_start" label="Season #" width="100">
-                <a :href="'/history/seasons/'+ props.row.year_start" >
+                <a :href="'/seasons/'+ props.row.year_start" >
                   {{ props.row.year_start - 1967}}
                 </a>
               </b-table-column>
@@ -22,7 +22,7 @@
                 </div>
               </b-table-column>
               <b-table-column custom-key="actions">
-                <a :href="'/history/seasons/'+ props.row.year_start" class="button is-small is-outlined is-primary is-light">
+                <a :href="'/seasons/'+ props.row.year_start" class="button is-small is-outlined is-primary is-light">
                  <i class="fas fa-eye"></i>&nbsp;&nbsp; view season
                 </a>
               </b-table-column>
