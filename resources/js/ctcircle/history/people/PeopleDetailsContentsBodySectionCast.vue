@@ -53,9 +53,6 @@
     .b-table thead {
         display: none;
     }
-    .b-table td:first-child {
-        padding-left: 0px;
-    }
 </style>
 <style scoped>
     h1 {

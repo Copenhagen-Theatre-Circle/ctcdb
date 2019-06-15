@@ -59,8 +59,10 @@
     .b-table thead {
         display: none;
     }
-    .b-table td:first-child {
-        padding-left: 0px;
+    @media only screen and (min-width: 769px) {
+        .b-table td:first-child {
+            padding-left: 0px;
+        }
     }
 </style>
 <style scoped>

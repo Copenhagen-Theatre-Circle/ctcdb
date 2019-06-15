@@ -1,7 +1,6 @@
 <template>
     <div class="has-background-light ctcdb">
-        <ctcdb-navbar-short/>
-        <ctcdb-navbar-tall/>
+        <ctcdb-navbar/>
         <div class="container">
             <main>
                 <slot></slot>
@@ -35,5 +34,10 @@ export default {
     .ctcdb {
         min-height: 100vh;
         height: 100%;
+    }
+    @media only screen and (max-width: 768px) {
+      .container {
+            margin-top: 4rem !important;
+        }
     }
 </style>
