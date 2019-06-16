@@ -3681,12 +3681,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['person'],
   data: function data() {
     return {
       message: 'hello'
     };
+  },
+  computed: {
+    isStaging: function isStaging() {
+      return document.URL.includes("staging");
+    }
   },
   methods: {}
 });
@@ -3721,7 +3729,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['person']
+  props: ['person'],
+  computed: {
+    isStaging: function isStaging() {
+      return document.URL.includes("staging");
+    }
+  }
 });
 
 /***/ }),
@@ -3959,7 +3972,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['person']
+  props: ['person'],
+  computed: {
+    isStaging: function isStaging() {
+      return document.URL.includes("staging");
+    }
+  }
 });
 
 /***/ }),
@@ -3982,7 +4000,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['person']
+  props: ['person'],
+  computed: {
+    isStaging: function isStaging() {
+      return document.URL.includes("staging");
+    }
+  }
 });
 
 /***/ }),
@@ -13512,7 +13535,7 @@ var render = function() {
           )
         : _vm._e(),
       _vm._v(" "),
-      _vm.person.phototags.length > 0
+      _vm.person.phototags.length > 0 && _vm.isStaging
         ? _c(
             "people-details-contents-body-section",
             { attrs: { title: "Photographs" } },
@@ -13591,7 +13614,7 @@ var render = function() {
           ])
         : _vm._e(),
       _vm._v(" "),
-      _vm.person.phototags.length > 0
+      _vm.person.phototags.length > 0 && _vm.isStaging
         ? _c("li", [
             _c(
               "a",
@@ -13909,7 +13932,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm.person.phototags.length > 0
+    _vm.person.phototags.length > 0 && _vm.isStaging
       ? _c(
           "div",
           [
@@ -13961,7 +13984,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", [
-    _vm.person.portraits
+    _vm.person.portraits && _vm.isStaging
       ? _c("img", {
           attrs: {
             src:

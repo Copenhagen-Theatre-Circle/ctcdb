@@ -24,7 +24,10 @@
         </people-details-contents-body-section>
 
         <!-- Photographs -->
-        <people-details-contents-body-section title="Photographs" v-if="person.phototags.length>0">
+        <people-details-contents-body-section
+            title="Photographs"
+            v-if="person.phototags.length>0&& isStaging"
+        >
             <people-details-contents-body-section-photographs :person="person" />
         </people-details-contents-body-section>
 
@@ -37,6 +40,11 @@
       return {
         message: 'hello'
       }
+    },
+    computed: {
+        isStaging(){
+            return document.URL.includes("staging")
+        }
     },
     methods: {
 

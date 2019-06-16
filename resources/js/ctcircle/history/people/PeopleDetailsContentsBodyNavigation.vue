@@ -10,7 +10,7 @@
             <li v-if="person.crewfunctions.length>0">
                  <a class="has-text-primary" href="#ascrewmember" data-turbolinks="false">as Crew Member</a>
             </li>
-            <li v-if="person.phototags.length>0">
+            <li v-if="person.phototags.length>0 && isStaging">
                  <a class="has-text-primary" href="#photographs" data-turbolinks="false">Photographs</a>
             </li>
         </ul>
@@ -18,7 +18,12 @@
 </template>
 <script>
   export default {
-    props:['person']
+    props:['person'],
+    computed: {
+        isStaging(){
+            return document.URL.includes("staging")
+        }
+    },
   }
 </script>
 <style scoped>

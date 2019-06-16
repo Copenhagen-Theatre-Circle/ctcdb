@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-if="person.phototags.length>0">
+    <div v-if="person.phototags.length>0 && isStaging">
       <!-- Carousel -->
       <people-details-carousel :phototags="person.phototags" />
       <div class="titlecard">
@@ -16,7 +16,12 @@
 </template>
 <script>
   export default {
-    props:['person']
+    props:['person'],
+    computed: {
+        isStaging(){
+            return document.URL.includes("staging")
+        }
+    },
   }
 </script>
 <style scoped lang="scss">
