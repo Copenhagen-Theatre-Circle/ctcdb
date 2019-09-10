@@ -21,7 +21,7 @@
                     />
                 </b-table-column> -->
                 <b-table-column label="Play">
-                    <a :href="'/shows/' + props.row.project_id">
+                    <a :href="'../shows/' + props.row.project_id">
                         {{ props.row.play }}
                     </a>
                 </b-table-column>

@@ -15,7 +15,7 @@ class HomeController extends Controller
     {
         $eventtypes = Eventtype::all();
         $events = Event::whereDate('date', '>=', Carbon::now('Europe/Stockholm'))->orderBy('date')->get();
-        $events->load('project','eventtype');
+        $events->load('project.poster.photograph','eventtype','venue');
         // return $auth;
         // return $events;
 
@@ -26,9 +26,17 @@ class HomeController extends Controller
             $i++;
             $subarray['id'] = $event->id;
 
-            //name: priority: 1. Event Name (option to replace, prepend or append), 2. Project Name, 3. Eventtype Name
+            //name, description and image
+            if ($event->defaults_are_overridden) {
+                $subarray['description'] = $event->short_description ?? $event->project->short_description ?? $event->eventtype->short_description;
+                $subarray['image'] = $event->photograph->file_name ?? $event->project->poster[0]['photograph']['file_name'] ?? $event->eventtype->photograph->file_name ?? '';
+                $subarray['name'] =  $event->title ?? $event->project->name ?? $event->eventtype->name;
+            } else {
+                $subarray['description'] = $event->project->short_description ?? $event->eventtype->short_description ?? $event->short_description ?? '';
+                $subarray['image'] =  $event->project->poster[0]['photograph']['file_name'] ?? $event->eventtype->photograph->file_name ?? $event->photograph->file_name ?? '';
+                $subarray['name'] =  $event->project->name ?? $event->eventtype->name ?? $event->title ?? '';
+            }
 
-            $subarray['name'] =  $event->name ?? $event->project->name ?? $event->eventtype->name;
 
             //date & time
 
@@ -36,22 +44,17 @@ class HomeController extends Controller
             $subarray['time'] = $event->time;
 
             //location - TO DO: create location table
-
-            $subarray['location'] = '[LOCATION HERE]';
+            if ($event->for_members_only!=1) {
+                $subarray['location'] = $event->venue->name;
+                $subarray['address'] = $event->venue->street . ', ' . $event->venue->post_code . ' ' . $event->venue->city;
+            } else {
+                $subarray['location'] = '🔓 CTC Members Only';
+            }
 
             //eventtype
 
             $subarray['eventtype'] = $event->eventtype->name;
-
-            //description (short description): priority: 1. Event Description (option to replace, prepend or append) 2. Project Description, 3. Eventtype Description
-
-            $subarray['description'] = $event->short_description ?? $event->project->short_description ?? $event->eventtype->short_description;
-
-            //
-
-            //image
-
-            $subarray['image'] = $event->xx_image_override;
+            $subarray['for_members_only'] = $event->for_members_only;
 
             //ticket link
 

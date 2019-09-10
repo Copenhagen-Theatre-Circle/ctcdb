@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Photograph extends Model
 {
-    protected $visible=['id','file_name','phototype_id','phototype'];
+    protected $visible=['id','file_name','phototype_id','phototype','photograph'];
 
     public function phototype()
     {

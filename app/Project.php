@@ -6,7 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Project extends Model
 {
-    protected $visible=['id','name','date_start','date_end','number_of_performances','synopsis','special_thanks','directors_statement','poster','projecttype','year','projects_plays','crewmembers','directors','programme','documents','season','venue'];
+    protected $guarded=[];
+
+    protected $visible=['id','name','date_start','date_end','number_of_performances','synopsis','special_thanks','directors_statement','poster','projecttype','year','projects_plays','crewmembers','directors','programme','documents','season','venue','short_description','phototags','poster'];
 
     public function projects_plays()
     {

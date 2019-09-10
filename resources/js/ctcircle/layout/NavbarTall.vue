@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar is-dark nav-menu" role="navigation" aria-label="main navigation">
+  <nav class="navbar is-white nav-menu" role="navigation" aria-label="main navigation">
     <div class="container">
       <div class="navbar-brand">
         <a class="navbar-item" href="/">
@@ -22,5 +22,8 @@
   .nav-menu, .nav-menu .navbar-brand, .nav-menu img {
       min-height: 150px;
       font-size: 1.25rem;
+  }
+  .navbar {
+    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
   }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <section class="notification" v-if="display">
-    <button class="delete" @click="hide()"></button>
+    <!-- <button class="delete" @click="hide()"></button> -->
     <p class="subtitle">
       <label class="label"><i class="fas fa-envelope fa-lg">&nbsp;</i>Sign up to our Newsletter</label>
     </p>

@@ -40,7 +40,9 @@ Route::get('history', function () {
 Route::get('/history/shows', 'ShowsController@index')->name('shows');
 Route::get('/history/shows/{id}', 'ShowsController@show');
 Route::get('/history/people', 'PeopleController@index')->name('people');
+Route::get('/history/people/{id}', 'PeopleController@show');
 Route::get('/history/seasons', 'SeasonsController@index')->name('seasons');
+Route::get('/history/seasons/{id}', 'SeasonsController@show');
 
 //Join
 Route::get('/join', 'JoinController@show');
@@ -52,14 +54,34 @@ Route::get('/members','MembersController@show');
 //Admin Controllers
 
 Route::get('/admin/', function () {
-    return view('app_admin');
+    return redirect('/admin/events');
 });
 Route::get('/admin/{any}', function () {
     return view('app_admin');
 })->where('any','.*');
+
 Route::get('/admin-api/events', 'AdminEventsController@index');
+Route::get('/admin-api/events/fields', 'AdminEventsController@fields');
+Route::get('/admin-api/events/{id}', 'AdminEventsController@show');
+Route::post('/admin-api/events', 'AdminEventsController@store');
+Route::patch('/admin-api/events/{id}', 'AdminEventsController@update');
+
+Route::get('/admin-api/eventtypes', 'AdminEventtypesController@index');
+Route::get('/admin-api/eventtypes/{id}', 'AdminEventtypesController@show');
+Route::patch('/admin-api/eventtypes/{id}', 'AdminEventtypesController@update');
+
 Route::get('/admin-api/projects', 'AdminProjectsController@index');
+Route::get('/admin-api/projects/{id}', 'AdminProjectsController@show');
+Route::patch('/admin-api/projects/{id}', 'AdminProjectsController@update');
+
 Route::get('/admin-api/plays', 'AdminPlaysController@index');
+Route::get('/admin-api/plays/{id}', 'AdminPlaysController@show');
+
+Route::get('/admin-api/venues', 'AdminVenuesController@index');
+Route::get('/admin-api/venues/fields', 'AdminVenuesController@fields');
+Route::get('/admin-api/venues/{id}', 'AdminVenuesController@show');
+Route::patch('/admin-api/venues/{id}', 'AdminVenuesController@update');
+Route::post('/admin-api/venues', 'AdminVenuesController@store');
 
 }
 

@@ -1,7 +1,6 @@
 <template>
     <base-layout title="History">
-        <section class="section">
-          <br>
+        <section class="section has-background-white">
           <history-tabs activeTab="shows"></history-tabs>
           <div class="columns">
             <div class="column is-6">
@@ -31,7 +30,7 @@
               :key="project.id"
             >
             <template v-slot:year>
-              <h1 class="has-text-light subtitle">
+              <h1 class="has-text-dark subtitle is-size-5">
                 &nbsp;<span v-if="index==0 || (projects[index-1].year > project.year)">{{project.year}}</span>
               </h1>
             </template>
@@ -42,7 +41,7 @@
             </div>
             <div v-else class="card" style="height: 285px;">
               <div class="card-content">
-                <h3 class="subtitle is-size-5">{{project.name}}</h3>
+                <h3 class="subtitle">{{project.name}}</h3>
                 <i class="fas fa-theater-masks fa-7x" style="color:#ddd"></i>
               </div>
             </div>
@@ -98,12 +97,16 @@
   }
 </script>
 <style scoped>
-    a {
-      border: 1px solid darkgrey;
+
+    img {
+      box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
     }
     section {
-      background: linear-gradient( rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4) );
+      /*background: linear-gradient( rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4) );*/
       padding-top: 1rem;
       margin-top: 1rem;
+    }
+    .subtitle {
+      margin-bottom: 0.5rem;
     }
 </style>

@@ -6,7 +6,7 @@
           :key="project.id"
         >
             <div v-if="project.poster.length > 0">
-              <a :href="'/shows/'+project.id">
+              <a :href="'../shows/'+project.id">
                 <base-image width=400 :image="project.poster[0].photograph.file_name"></base-image>
               </a>
             </div>

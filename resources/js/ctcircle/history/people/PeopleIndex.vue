@@ -1,7 +1,6 @@
 <template>
     <base-layout title="History">
-        <section class="section">
-          <br>
+        <section class="section has-background-white">
           <history-tabs activeTab="people"></history-tabs>
           <div class="columns">
             <div class="column is-6">
@@ -10,7 +9,7 @@
               </b-field>
             </div>
           </div>
-          <b-table striped hoverable :data="filter">
+          <b-table hoverable :data="filter">
             <template slot-scope="props">
               <b-table-column field="full_name" label="Name">
                 <a :href="'/history/people/'+ props.row.id" >
@@ -81,7 +80,6 @@
 </script>
 <style scoped>
     section {
-      background: linear-gradient( rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4) );
       padding-top: 1rem;
       margin-top: 1rem;
     }

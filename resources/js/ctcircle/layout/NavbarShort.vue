@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar is-dark is-fixed-top" id="navbar-scrolling">
+  <nav class="navbar is-white is-fixed-top" id="navbar-scrolling">
     <div class="container">
       <div class="navbar-brand">
         <a class="navbar-item" href="https://ctcircle.test">
@@ -41,4 +41,8 @@
     }
   }
 </script>
-<style scoped></style>
+<style scoped>
+  .navbar {
+    box-shadow: 0 2px 3px rgba(10, 10, 10, 0.1), 0 0 0 1px rgba(10, 10, 10, 0.1);
+  }
+</style>

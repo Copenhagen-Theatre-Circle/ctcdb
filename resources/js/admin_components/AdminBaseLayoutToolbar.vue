@@ -4,6 +4,7 @@
       dark
       fixed
       :clipped-left="$vuetify.breakpoint.mdAndUp"
+      style="z-index: 50;"
     >
         <v-toolbar-title style="width: 300px" class="ml-0 pl-0">
             <!-- <v-toolbar-side-icon @click.stop="toggleDrawer()" class="ml-0 pl-0"></v-toolbar-side-icon> -->

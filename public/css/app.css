@@ -20762,9 +20762,9 @@ label.panel-block:hover {
   background: rgba(255, 56, 96, 0.05);
 }
 
-html {
-  background-color: white;
-  background-size: cover;
+html,
+body {
+  height: 100% !important;
 }
 
 .nav-links,

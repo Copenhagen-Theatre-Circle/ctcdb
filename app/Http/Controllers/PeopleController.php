@@ -120,7 +120,7 @@ class PeopleController extends Controller
         if ($app_url=='https://ctcdb.dk') {
             return View::component('CtcdbPeopleDetails', ['person' => $person]);
         } else {
-            return View::component('PeopleDetails', ['people' => $array]);
+            return View::component('PeopleDetails', ['person' => $person]);
         }
     }
 }

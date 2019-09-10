@@ -1,8 +1,5 @@
 <template>
   <div>
-    <!-- <div v-for="category in data"> -->
-        <!-- <h1 class="title is-size-3 has-text-white" style="margin: 1rem 0rem 0rem 0.6rem;">{{category.name}}</h1> -->
-      <br>
       <div class="columns is-multiline">
           <modal-card
             v-for="card in data.about_us_cards"
@@ -15,21 +12,21 @@
       </div>
       <div>
         <a
-          class="has-text-light is-pulled-left"
+          class="is-pulled-left"
           @click="$emit('selectTab', panelLinkBack)"
           v-if="linkTextLeft.length>0"
           >
           <i class="fas fa-long-arrow-alt-left"></i>&nbsp;&nbsp;{{linkTextLeft}}
         </a>
         <a
-          class="has-text-light is-pulled-right"
+          class="is-pulled-right"
           @click="$emit('selectTab', panelLinkForward)"
           v-if="linkTextRight.length>0"
           >
           {{linkTextRight}}&nbsp;&nbsp;<i class="fas fa-long-arrow-alt-right"></i>
         </a>
+        <br>
       </div>
-      <br>
   </div>
 </template>
 <script>
@@ -46,7 +43,4 @@
   }
 </script>
 <style scoped>
-  .button {
-
-  }
 </style>

@@ -32,7 +32,7 @@
                         {{ props.row.character.name }}
                     </b-table-column>
                     <b-table-column label="Actress/Actor">
-                        <a :href="'/people/' + props.row.person.id">
+                        <a :href="'../people/' + props.row.person.id">
                         {{ props.row.person.first_name }} {{ props.row.person.last_name }}
                         </a>
                     </b-table-column>

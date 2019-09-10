@@ -32,7 +32,7 @@
 </script>
 <style scoped>
     .columns{
-        height: 400px;
+        height: 300px;
     }
     .transparent-card {
       background-color: rgba(0, 0, 0, 0.5 );

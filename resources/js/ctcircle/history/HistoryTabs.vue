@@ -2,19 +2,19 @@
     <div class="tabs is-fullwidth">
       <ul>
         <li :class="{'is-active': activeTab=='shows'}">
-          <a href="/history/shows" class="has-text-white">
+          <a href="/history/shows">
             <span class="icon is-small"><i class="fas fa-theater-masks" aria-hidden="true"></i></span>
             <span>Shows</span>
           </a>
         </li>
         <li :class="{'is-active': activeTab=='people'}">
-          <a href="/history/people" class="has-text-white">
+          <a href="/history/people">
             <span class="icon is-small"><i class="far fa-user-circle" aria-hidden="true"></i></span>
             <span>People</span>
           </a>
         </li>
         <li :class="{'is-active': activeTab=='seasons'}">
-          <a href="/history/seasons" class="has-text-white">
+          <a href="/history/seasons">
             <span class="icon is-small"><i class="fas fa-calendar" aria-hidden="true"></i></span>
             <span>Seasons</span>
           </a>
@@ -36,19 +36,18 @@
   }
 </script>
 <style scoped>
-    a {
+/*    a {
       font-size: 1.2rem;
     }
     li>a:hover {
-        /*color: #c42926 !important;*/
         border-bottom-color: #c42926 !important;
-    }
-    .is-active>a {
+    }*/
+/*    .is-active>a {
         color: #c42926 !important;
         font-weight: 600;
     }
     .is-active>a:hover {
         color: #c42926 !important;
         font-weight: 600;
-    }
+    }*/
 </style>

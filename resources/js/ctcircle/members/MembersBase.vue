@@ -1,6 +1,6 @@
 <template>
     <base-layout title="Members" id="div" members="true">
-      <section class="section">
+      <section class="section has-background-white">
         <div class="columns is-multiline">
           <base-button-card title="Member Rebate Codes" icon="barcode" size=4 tooltip="Find your rebate codes for show tickets here" href="rebate-codes" />
           <base-button-card title="Notice Board" icon="thumbtack" size=4 tooltip="The CTC notice board - look for stuff to do, ask for help!" />
@@ -33,7 +33,6 @@
 </script>
 <style scoped>
     section {
-      background: linear-gradient( rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4) );
       padding-top: 1rem;
       margin-top: 1rem;
     }

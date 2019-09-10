@@ -1,19 +1,20 @@
 <template>
     <base-layout title="Home" id="div" >
-        <div class="container">
-            <div class="hero intro">
+        <section class="section has-background-white">
+            <!-- <div class="hero intro"> -->
                 <div class="columns is-centered">
-                    <div class="column is-12">
-                      <p class="has-text-white content is-size-5">
+                    <div class="column is-11">
+                      <p class="is-justified">
                         By <a href="/register">registering</a>, you can create your own profile to tell us how you would like to help out, and sign up for auditions and workshops.
                       </p>
-                      <p class="has-text-white content is-size-5">
+                      <br>
+                      <p class="is-justified">
                         You don't have to be a CTC member to register, but there are <a href="/join">plenty of extra goodies</a> on this site if you become a member.
                       </p>
                     </div>
                 </div>
-            </div>
-            <br>
+            <!-- </div> -->
+            <!-- <br> -->
             <div class="columns is-centered">
                 <div class="column is-5">
                     <div class="card">
@@ -105,7 +106,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     </base-layout>
 </template>
 <script>
@@ -128,8 +129,12 @@
         border-radius: 3px;
     }
     .intro{
-        background-color: rgba(0, 0, 0, 0.5 );
+        /*background-color: rgba(0, 0, 0, 0.5 );*/
         padding: 1.5rem;
+        margin-top: 1rem;
+      }
+    section {
+        padding-top: 1rem;
         margin-top: 1rem;
       }
 </style>

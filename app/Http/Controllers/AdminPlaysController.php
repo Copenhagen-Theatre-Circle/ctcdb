@@ -10,8 +10,14 @@ class AdminPlaysController extends Controller
 {
     public function index()
     {
-        $plays = Play::orderBy('title')->get();
+        $plays = Play::orderBy('title')->get()->map(function($play){
+            return ['id'=>$play->id, 'title'=>$play->title];
+        });
         return $plays;
-        // return View::admin_component('AdminPlays', ['plays' => $plays]);
+    }
+    public function show($id)
+    {
+        $play = Play::find($id);
+        return $play;
     }
 }

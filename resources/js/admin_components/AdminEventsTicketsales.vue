@@ -1,5 +1,5 @@
 <template>
-    <h1>This is Test Two</h1>
+  <h1 class="ml-5 mr-5 mt-5">Ticket Sales here</h1>
 </template>
 <script>
   export default {

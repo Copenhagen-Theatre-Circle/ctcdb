@@ -13,7 +13,7 @@
                     >
                 </div>
                 <div class="card-content">
-                    <p class="title is-4"><a :href="'/people/'+committee_member.person.id">{{committee_member.person.first_name}} {{committee_member.person.last_name}}</a></p>
+                    <p class="title is-4"><a :href="'../people/'+committee_member.person.id">{{committee_member.person.first_name}} {{committee_member.person.last_name}}</a></p>
                     <p class="subtitle is-6">{{committee_member.committee_function.name}}</p>
                 </div>
             </div>

@@ -2,7 +2,7 @@
     <div class="card has-background-light">
         <div class="card-content">
             <div class="info">
-                Season: <a :href="'/seasons/'+project.season.year_start">{{project.season.year_start}}/{{project.season.year_start+1}}</a>
+                Season: <a :href="'../seasons/'+project.season.year_start">{{project.season.year_start}}/{{project.season.year_start+1}}</a>
             </div>
             <div class="info">
                 Venue: {{project.venue.name}}

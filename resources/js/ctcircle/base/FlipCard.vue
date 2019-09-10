@@ -6,7 +6,7 @@
           <div class="card-image">
             <figure class="image is-4by3">
               <img
-              :src="'https://res.cloudinary.com/ctcircle/image/fetch/h_960,w_1280,c_fill/' + event.image "
+              :src="'https://res.cloudinary.com/ctcircle/image/fetch/h_960,w_1280,c_fill/http://ctc-members.dk/files/' + event.image "
               alt="Placeholder image"
               >
             </figure>
@@ -20,7 +20,8 @@
             </div>
           </div>
           <footer class="card-footer">
-            <a href="http://ctcircle.dk" class="card-footer-item">More Info</a>
+            <a v-if="event.for_members_only" href="http://ctcircle.test/join" class="card-footer-item">Join the CTC</a>
+            <a v-else href="http://ctcircle.dk" class="card-footer-item">More Info</a>
             <a v-if="event.seccode" :href="'http://place2book.com/events/' + event.seccode" target="_blank" class="card-footer-item">Buy Tickets!</a>
           </footer>
         </div>
