@@ -135,5 +135,19 @@ export default {
               },
             ]
         },
+        {
+            endpoint: 'about-us-cards',
+            createRecord: true,
+            listComponents:{
+                title: 'title',
+                subtitle: null
+            },
+            recordTabs: [
+              {
+                name: 'Basic Info',
+                component: 'AdminAboutUsCardsBasics'
+              },
+            ]
+        },
     ]
 }

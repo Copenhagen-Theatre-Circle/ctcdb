@@ -8,6 +8,8 @@ class AboutUsCard extends Model
 {
     protected $appends=['photograph'];
 
+    protected $guarded=[];
+
     public function about_us_category()
     {
         return $this->belongsTo('App\AboutUsCategory');

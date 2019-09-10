@@ -55,33 +55,41 @@ Route::get('/members','MembersController@show');
 
 Route::get('/admin/', function () {
     return redirect('/admin/events');
-});
+})->middleware('auth');
 Route::get('/admin/{any}', function () {
     return view('app_admin');
-})->where('any','.*');
+})->where('any','.*')->middleware('auth');
 
-Route::get('/admin-api/events', 'AdminEventsController@index');
-Route::get('/admin-api/events/fields', 'AdminEventsController@fields');
-Route::get('/admin-api/events/{id}', 'AdminEventsController@show');
-Route::post('/admin-api/events', 'AdminEventsController@store');
-Route::patch('/admin-api/events/{id}', 'AdminEventsController@update');
+Route::middleware('auth')->group(function () {
 
-Route::get('/admin-api/eventtypes', 'AdminEventtypesController@index');
-Route::get('/admin-api/eventtypes/{id}', 'AdminEventtypesController@show');
-Route::patch('/admin-api/eventtypes/{id}', 'AdminEventtypesController@update');
+        Route::get('/admin-api/events', 'AdminEventsController@index');
+        Route::get('/admin-api/events/fields', 'AdminEventsController@fields');
+        Route::get('/admin-api/events/{id}', 'AdminEventsController@show');
+        Route::post('/admin-api/events', 'AdminEventsController@store');
+        Route::patch('/admin-api/events/{id}', 'AdminEventsController@update');
 
-Route::get('/admin-api/projects', 'AdminProjectsController@index');
-Route::get('/admin-api/projects/{id}', 'AdminProjectsController@show');
-Route::patch('/admin-api/projects/{id}', 'AdminProjectsController@update');
+        Route::get('/admin-api/eventtypes', 'AdminEventtypesController@index');
+        Route::get('/admin-api/eventtypes/{id}', 'AdminEventtypesController@show');
+        Route::patch('/admin-api/eventtypes/{id}', 'AdminEventtypesController@update');
 
-Route::get('/admin-api/plays', 'AdminPlaysController@index');
-Route::get('/admin-api/plays/{id}', 'AdminPlaysController@show');
+        Route::get('/admin-api/projects', 'AdminProjectsController@index');
+        Route::get('/admin-api/projects/{id}', 'AdminProjectsController@show');
+        Route::patch('/admin-api/projects/{id}', 'AdminProjectsController@update');
 
-Route::get('/admin-api/venues', 'AdminVenuesController@index');
-Route::get('/admin-api/venues/fields', 'AdminVenuesController@fields');
-Route::get('/admin-api/venues/{id}', 'AdminVenuesController@show');
-Route::patch('/admin-api/venues/{id}', 'AdminVenuesController@update');
-Route::post('/admin-api/venues', 'AdminVenuesController@store');
+        Route::get('/admin-api/plays', 'AdminPlaysController@index');
+        Route::get('/admin-api/plays/{id}', 'AdminPlaysController@show');
+
+        Route::get('/admin-api/venues', 'AdminVenuesController@index');
+        Route::get('/admin-api/venues/fields', 'AdminVenuesController@fields');
+        Route::get('/admin-api/venues/{id}', 'AdminVenuesController@show');
+        Route::patch('/admin-api/venues/{id}', 'AdminVenuesController@update');
+        Route::post('/admin-api/venues', 'AdminVenuesController@store');
+
+        Route::get('/admin-api/about-us-cards','AdminAboutUsCardsController@index');
+        Route::get('/admin-api/about-us-cards/{id}','AdminAboutUsCardsController@show');
+        Route::patch('/admin-api/about-us-cards/{id}','AdminAboutUsCardsController@update');
+
+    });
 
 }
 

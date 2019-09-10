@@ -53,6 +53,7 @@
             { icon: 'folder_special', text: 'Projects', ref: 'projects' },
             { icon: 'book', text: 'Plays', ref: 'plays', divider: true },
             { header: 'Settings', icon: 'fa-cog', text: 'Eventtypes', ref: 'eventtypes' },
+            { icon: 'fa-window-restore', text: '"About Us" Cards', ref: 'about-us-cards' },
             { icon: 'fa-hotel', text: 'Venues', ref: 'venues' },
         ]
       }
